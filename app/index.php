@@ -1,4 +1,4 @@
-<?php
+mp<?php
 // Error Handling
 error_reporting(-1);
 ini_set('display_errors', 1);
@@ -16,6 +16,9 @@ require_once './db/AccesoDatos.php';
 // require_once './middlewares/Logger.php';
 
 require_once './controllers/UsuarioController.php';
+require_once './controllers/ProductoController.php';
+require_once './controllers/PedidoController.php';
+require_once './controllers/MesaController.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -31,17 +34,50 @@ $app->addErrorMiddleware(true, true, true);
 $app->addBodyParsingMiddleware();
 
 // Routes
-$app->group('/usuarios', function (RouteCollectorProxy $group) {
-    $group->get('[/]', \UsuarioController::class . ':TraerTodos');
-    $group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
-    $group->post('[/]', \UsuarioController::class . ':CargarUno');
-  });
-
 $app->get('[/]', function (Request $request, Response $response) {    
-    $payload = json_encode(array("mensaje" => "Slim Framework 4 PHP"));
+    $payload = json_encode(array("mensaje" => "Slim Framework 4 HOAL"));
     
     $response->getBody()->write($payload);
     return $response->withHeader('Content-Type', 'application/json');
 });
+
+$app->group('/usuarios', function (RouteCollectorProxy $group) {
+  $group->get('[/]', \UsuarioController::class . ':TraerTodos');
+  $group->post('[/]', \UsuarioController::class . ':CargarUno');
+  $group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
+  $group->put('/{id}', \UsuarioController::class . ':ModificarUno');
+  $group->delete('/{id}', \UsuarioController::class . ':BorrarUno');
+});
+
+$app->group('/productos', function (RouteCollectorProxy $group) {
+  $group->get('[/]', \ProductoController::class . ':TraerTodos');
+  $group->get('/{producto}', \ProductoController::class . ':TraerUno');
+  $group->post('[/]', \ProductoController::class . ':CargarUno');
+  $group->put('/{id}', \ProductoController::class . ':ModificarUno');
+  $group->delete('/{id}', \ProductoController::class . ':BorrarUno');
+});
+
+$app->group('/mesas', function (RouteCollectorProxy $group) {
+  $group->get('[/]', \MesaController::class . ':TraerTodos');
+  $group->post('[/]', \MesaController::class . ':CargarUno');
+  
+});
+
+$app->group('/pedidos', function (RouteCollectorProxy $group) {
+  $group->get('[/]', \PedidoController::class . ':TraerTodos');
+  $group->post('[/]', \PedidoController::class . ':CargarUno');
+  
+});
+
+
+
+
+
+
+
+
+
+
+
 
 $app->run();

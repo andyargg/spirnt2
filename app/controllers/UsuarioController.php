@@ -11,7 +11,6 @@ class UsuarioController extends Usuario implements IApiUsable
         $usuario = $parametros['usuario'];
         $clave = $parametros['clave'];
 
-        // Creamos el usuario
         $usr = new Usuario();
         $usr->usuario = $usuario;
         $usr->clave = $clave;
@@ -26,7 +25,6 @@ class UsuarioController extends Usuario implements IApiUsable
 
     public function TraerUno($request, $response, $args)
     {
-        // Buscamos usuario por nombre
         $usr = $args['usuario'];
         $usuario = Usuario::obtenerUsuario($usr);
         $payload = json_encode($usuario);
@@ -50,8 +48,10 @@ class UsuarioController extends Usuario implements IApiUsable
     {
         $parametros = $request->getParsedBody();
 
+        $id = $parametros['id'];
         $nombre = $parametros['nombre'];
-        Usuario::modificarUsuario($nombre);
+        $clave = $parametros['clave'];
+        Usuario::modificarUsuario($id, $nombre, $clave);
 
         $payload = json_encode(array("mensaje" => "Usuario modificado con exito"));
 

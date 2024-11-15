@@ -1,0 +1,556 @@
+{
+	"info": {
+		"_postman_id": "33cda651-12a5-4497-a111-835046c2b6fb",
+		"name": "SPRINT2CONSULTAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37930766"
+	},
+	"item": [
+		{
+			"name": "CargarUnoUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"yo\",\r\n    \"clave\": \"asdad\",\r\n    \"rol\": \"bartender\",\r\n    \"miRol\": \"socio\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUnoUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rol\": \"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/usuarios/franco",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"usuarios",
+						"franco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerTodosUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarUnoUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"Akon\",\r\n    \"clave\": \"asdad\",\r\n    \"rol\": \"mozo\",\r\n    \"miRol\": \"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/usuarios/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"usuarios",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarUnoUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/usuarios/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"usuarios",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CargarUnoProducto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"carneee\",\r\n    \"precio\":\"400\",\r\n    \"tipo\":\"comida\",\r\n    \"miRol\":\"socio\",\r\n    \"tiempo_preparacion\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUnoProducto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/productos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"productos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerTodosProducto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarUnoProducto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"lechuga\",\r\n    \"tipo\": \"comida\",\r\n    \"precio\": 150,\r\n    \"sector\": \"cocina\",\r\n    \"tiempoPreparacion\": 1,\r\n    \"miRol\": \"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/productos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"productos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarUnoProducto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"miRol\": \"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/productos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"productos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CargarUnoMesa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigoMesa\": 1,\r\n    \"capacidad\": 2,\r\n    \"estado\": \"con cliente esperando pedido\",\r\n    \"miRol\": \"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUnoMesa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/mesas/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"mesas",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerTodosMesa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"mozo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarUnoMesa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\",\r\n    \"capacidad\":3,\r\n    \"estado\":\"cerrada\",\r\n    \"id\":1,\r\n    \"codigoMesa\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarUnoMesa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"socio\",\r\n    \"id\":6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CargarUnoPedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"mozo\",\r\n    \"usuarioId\":1,\r\n    \"mesaId\":1,\r\n    \"estado\":\"pendiente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerUnoPedido",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"miRol\":\"mozo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:680/pedidos/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"pedidos",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TraerTodosPedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:680/pedidos/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"pedidos",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarUnoPedidos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:680/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "680",
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

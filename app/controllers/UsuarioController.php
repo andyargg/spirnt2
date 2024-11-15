@@ -10,10 +10,12 @@ class UsuarioController extends Usuario implements IApiUsable
 
         $usuario = $parametros['usuario'];
         $clave = $parametros['clave'];
+        $rol = $parametros['rol'];
 
         $usr = new Usuario();
         $usr->usuario = $usuario;
         $usr->clave = $clave;
+        $usr->rol = $rol;
         $usr->crearUsuario();
 
         $payload = json_encode(array("mensaje" => "Usuario creado con exito"));
@@ -46,19 +48,35 @@ class UsuarioController extends Usuario implements IApiUsable
     
     public function ModificarUno($request, $response, $args)
     {
-        $parametros = $request->getParsedBody();
+        try {
+            $parametros = $request->getParsedBody();
+            $id = $args['id']; 
+            
+            if (!isset($parametros['nombre']) || !isset($parametros['clave']) || !isset($parametros['rol'])) {
+                throw new Exception('Faltan datos obligatorios');
+            }
 
-        $id = $parametros['id'];
-        $nombre = $parametros['nombre'];
-        $clave = $parametros['clave'];
-        Usuario::modificarUsuario($id, $nombre, $clave);
+            $usuario = $parametros['nombre'];  
+            $clave = $parametros['clave'];
+            $rol = $parametros['rol']; 
 
-        $payload = json_encode(array("mensaje" => "Usuario modificado con exito"));
+            if (Usuario::modificarUsuario($id, $usuario, $clave, $rol)) {
+                $payload = json_encode(array("mensaje" => "Usuario modificado con éxito"));
+            } else {
+                $payload = json_encode(array("error" => "Error al modificar el usuario"));
+            }
 
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } catch (Exception $e) {
+            $payload = json_encode(array("error" => $e->getMessage()));
+            $response->getBody()->write($payload);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(500);
+        }
     }
+
 
     public function BorrarUno($request, $response, $args)
     {
